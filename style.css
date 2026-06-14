@@ -1,166 +1,151 @@
-/* ========== RESET (Better consistency) ========== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --primary-color: #4f46e5;
+  --card-bg: #f9f9f9;
+  --nav-bg: #4f46e5;
+  --nav-text: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: #1e1e1e;
+    --nav-bg: #1f1f1f;
+    --nav-text: #ffffff;
+  }
+}
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* ========== ROOT VARIABLES ========== */
-:root {
-  --primary: #2563eb;
-  --secondary: #1e293b;
-  --background: #f9fafb;
-  --text: #111827;
-  --white: #ffffff;
-  --focus: #f59e0b;
+html {
+  scroll-behavior: smooth;
 }
 
-/* ========== BODY ========== */
 body {
   font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: var(--background);
-  color: var(--text);
+  background: var(--bg-color);
+  color: var(--text-color);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 }
 
-/* ========== SKIP LINK (Accessibility) ========== */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 10px;
-  background: var(--focus);
-  color: black;
-  padding: 8px;
-  z-index: 100;
-}
-
-.skip-link:focus {
-  top: 10px;
-}
-
-/* ========== HEADER & NAV ========== */
 header {
-  background: var(--secondary);
-  color: var(--white);
-  padding: 1rem 2rem;
+  background: var(--nav-bg);
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 16px;
+  color: var(--nav-text);
 }
 
 nav h1 {
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 nav ul {
-  list-style: none;
   display: flex;
-  gap: 1.5rem;
+  list-style: none;
+  gap: 20px;
 }
 
 nav a {
-  color: var(--white);
+  color: var(--nav-text);
   text-decoration: none;
   font-weight: bold;
 }
 
-nav a:hover,
-nav a:focus {
+nav a:hover {
   text-decoration: underline;
 }
 
-/* ========== MAIN CONTENT ========== */
 main {
-  padding: 2rem;
+  padding: 32px;
 }
 
-/* ========== SECTIONS ========== */
-section {
-  margin-bottom: 2rem;
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
-h2 {
-  margin-bottom: 1rem;
-  color: var(--primary);
+.card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
 }
 
-/* ========== ARTICLES (Projects) ========== */
-article {
-  background: var(--white);
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.card:hover {
+  transform: scale(1.05);
 }
 
-/* ========== LISTS ========== */
-ul li {
-  margin-bottom: 0.5rem;
-}
-
-/* ========== FORM (Accessible Styling) ========== */
 form {
   max-width: 500px;
-}
-
-fieldset {
-  border: 2px solid var(--secondary);
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-legend {
-  font-weight: bold;
-}
-
-label {
-  display: block;
-  margin-top: 1rem;
 }
 
 input,
 textarea {
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.3rem;
+  padding: 10px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-/* Focus states for accessibility */
-input:focus,
-textarea:focus,
-button:focus {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-/* Button */
 button {
-  margin-top: 1rem;
-  padding: 0.7rem;
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: #ffffff;
   border: none;
-  background: var(--primary);
-  color: var(--white);
-  font-size: 1rem;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
-  background: #1d4ed8;
+  opacity: 0.9;
 }
 
-/* ========== FOOTER ========== */
 footer {
   text-align: center;
-  padding: 1rem;
-  background: var(--secondary);
-  color: var(--white);
-  margin-top: 2rem;
+  padding: 16px;
+  background: var(--card-bg);
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  main {
+    padding: 48px 96px;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
 }
