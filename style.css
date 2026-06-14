@@ -1,41 +1,36 @@
 :root {
-  --bg-color: #0d1117;
-  --text-color: #e6edf3;
-  --primary-color: #3b82f6;
+  --primary: #3b82f6;
+  --secondary: #0d1b2a;
+  --background: #0b0f14;
+  --text: #e6edf3;
   --card-bg: #161b22;
-  --nav-bg: #010409;
-  --nav-text: #e6edf3;
+  --nav-bg: #0d1b2a;
+  --nav-text: #ffffff;
+  --focus: #f59e0b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #0f172a;
-    --text-color: #e2e8f0;
-    --card-bg: #1e293b;
-    --nav-bg: #020617;
-    --nav-text: #ffffff;
-  }
-}
-
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BODY */
 body {
-  background-color: #0b0f14;
-  color: #e6edf3;
+  background-color: var(--background);
+  color: var(--text);
   font-family: Arial, sans-serif;
-  margin: 0;
 }
 
+/* HEADER */
 header {
-  background-color: #0d1b2a;
-  color: #ffffff;
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
   padding: 15px 0;
 }
 
+/* NAV */
 nav {
   display: flex;
   justify-content: space-between;
@@ -45,23 +40,27 @@ nav {
 }
 
 nav a {
-  color: #e6edf3;
+  color: var(--text);
   text-decoration: none;
   margin-left: 20px;
   font-weight: 500;
 }
 
 nav a:hover {
-  color: #4da3ff;
-}
-main {
-  background-color: #0b0f14;
-  padding: 40px 5%;
-}
-h2 {
-  color: #4da3ff;
+  color: var(--primary);
 }
 
+/* MAIN */
+main {
+  padding: 40px 5%;
+}
+
+/* HEADINGS */
+h2 {
+  color: var(--primary);
+}
+
+/* CARDS */
 .card-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -72,7 +71,7 @@ h2 {
   background: var(--card-bg);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #30363d;
   transition: transform 0.2s;
 }
 
@@ -80,6 +79,7 @@ h2 {
   transform: translateY(-4px);
 }
 
+/* FORM */
 form {
   max-width: 500px;
 }
@@ -89,13 +89,16 @@ textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #cbd5f5;
+  border: 1px solid #30363d;
   border-radius: 5px;
+  background: #0b0f14;
+  color: #e6edf3;
 }
 
+/* BUTTON */
 button {
   padding: 10px 20px;
-  background: var(--primary-color);
+  background: var(--primary);
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -103,15 +106,18 @@ button {
 }
 
 button:hover {
-  opacity: 0.9;
+  background: #2563eb;
 }
 
+/* FOOTER */
 footer {
-  background-color: #0d1b2a;
+  background-color: var(--nav-bg);
   color: #c9d1d9;
   text-align: center;
   padding: 15px 0;
 }
+
+/* RESPONSIVE */
 @media (min-width: 768px) {
   .card-container {
     grid-template-columns: repeat(2, 1fr);
