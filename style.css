@@ -1,10 +1,10 @@
 :root {
-  --bg-color: #f8fafc;
-  --text-color: #1e293b;
-  --primary-color: #2563eb;
-  --card-bg: #ffffff;
-  --nav-bg: #1e3a8a;
-  --nav-text: #ffffff;
+  --bg-color: #0d1117;
+  --text-color: #e6edf3;
+  --primary-color: #3b82f6;
+  --card-bg: #161b22;
+  --nav-bg: #010409;
+  --nav-text: #e6edf3;
 }
 
 @media (prefers-color-scheme: dark) {
