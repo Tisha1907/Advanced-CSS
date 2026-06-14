@@ -24,44 +24,42 @@
 }
 
 body {
+  background-color: #0b0f14;
+  color: #e6edf3;
   font-family: Arial, sans-serif;
-  background: var(--bg-color);
-  color: var(--text-color);
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
+  margin: 0;
 }
 
 header {
-  background: var(--nav-bg);
+  background-color: #0d1b2a;
+  color: #ffffff;
+  padding: 15px 0;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  color: var(--nav-text);
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
+  width: 90%;
+  margin: auto;
 }
 
 nav a {
-  color: var(--nav-text);
+  color: #e6edf3;
   text-decoration: none;
-  font-weight: bold;
+  margin-left: 20px;
+  font-weight: 500;
 }
 
 nav a:hover {
-  opacity: 0.8;
+  color: #4da3ff;
 }
-
 main {
-  padding: 32px;
+  background-color: #0b0f14;
+  padding: 40px 5%;
+}
+h2 {
+  color: #4da3ff;
 }
 
 .card-container {
@@ -109,11 +107,11 @@ button:hover {
 }
 
 footer {
+  background-color: #0d1b2a;
+  color: #c9d1d9;
   text-align: center;
-  padding: 16px;
-  background: var(--card-bg);
+  padding: 15px 0;
 }
-
 @media (min-width: 768px) {
   .card-container {
     grid-template-columns: repeat(2, 1fr);
