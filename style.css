@@ -8,7 +8,18 @@
   --nav-text: #ffffff;
   --focus: #f59e0b;
 }
+html, body {
+  height: 100%;
+}
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
 /* RESET */
 * {
   margin: 0;
