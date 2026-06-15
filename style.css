@@ -1,115 +1,187 @@
-:root {
-  --primary: #60a5fa;
-  --background: #020617;
-  --section-bg: #0b1220;
-  --nav-bg: #0d1b2a;
-  --text: #e6edf3;
-  --muted: #c9d1d9;
-}
-
-/* RESET */
-* {
+/* ========== RESET ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* BODY */
+/* ========== ROOT VARIABLES ========== */
+:root {
+  --primary: #38bdf8;
+  --secondary: #020617;
+  --background: #0f172a;
+  --card-bg: #1e293b;
+  --text: #e2e8f0;
+  --white: #ffffff;
+  --border: #334155;
+  --focus: #f59e0b;
+}
+
+/* ========== PAGE LAYOUT ========== */
+html,
 body {
-  background-color: var(--background);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-}
-
-/* HEADER */
-header {
-  background-color: var(--nav-bg);
-  color: #ffffff;
-  padding: 15px 0;
-}
-
-/* NAV */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  margin: auto;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-}
-
-nav li {
-  margin-left: 20px;
-}
-
-nav a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-nav a:hover {
-  color: var(--primary);
-}
-
-/* MAIN (THIS FIXES THE LOOK) */
-main {
-  background-color: var(--section-bg);
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 40px;
-  border-radius: 12px;
-}
-
-/* HEADINGS */
-h2 {
-  color: var(--primary);
-  margin-bottom: 10px;
-}
-
-/* TEXT SPACING */
-p {
-  margin-bottom: 20px;
-  line-height: 1.6;
-}
-
-/* LIST */
-ul {
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-/* FOOTER FIX */
-html, body {
   height: 100%;
 }
 
 body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: var(--background);
+  color: var(--text);
   display: flex;
   flex-direction: column;
 }
 
 main {
   flex: 1;
+  padding: 2rem;
 }
 
-/* FOOTER */
+/* ========== SKIP LINK ========== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: var(--focus);
+  color: black;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* ========== HEADER & NAV ========== */
+header {
+  background: var(--secondary);
+  color: var(--white);
+  padding: 1rem 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--primary);
+}
+
+/* ========== SECTIONS ========== */
+section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ========== PROJECT CARDS ========== */
+article {
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== LISTS ========== */
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* ========== FORM ========== */
+form {
+  max-width: 500px;
+}
+
+fieldset {
+  border: 2px solid var(--border);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+legend {
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: #0b1120;
+  color: var(--text);
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ========== BUTTON ========== */
+button {
+  margin-top: 1rem;
+  padding: 0.7rem 1rem;
+  border: none;
+  background: var(--primary);
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* ========== FOOTER ========== */
 footer {
-  background-color: var(--nav-bg);
-  color: var(--muted);
   text-align: center;
-  padding: 15px 0;
+  padding: 1rem;
+  background: var(--secondary);
+  color: var(--white);
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
   nav {
     flex-direction: column;
     gap: 10px;
@@ -117,11 +189,10 @@ footer {
 
   nav ul {
     flex-direction: column;
-    align-items: center;
+    text-align: center;
   }
 
   main {
-    margin: 20px;
-    padding: 20px;
+    padding: 1rem;
   }
 }
